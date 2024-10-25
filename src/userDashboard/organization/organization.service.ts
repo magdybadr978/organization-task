@@ -1,12 +1,11 @@
 import { BadGatewayException, Injectable, NotFoundException } from "@nestjs/common";
-import { CreateResponse, DeleteResponse, GetAllResponse, GetOneResponse, UpdateResponse } from "src/common/dto/response.dto";
+import { Types } from "mongoose";
+import { DeleteResponse, GetAllResponse, GetOneResponse, UpdateResponse } from "src/common/dto/response.dto";
 import { OrganizationRepository } from "src/models/organization/organization.repository";
 import { Organization, OrganizationDocument } from "src/models/organization/organization.schema";
-import { CreateOrganizationDTO, UpdateOrganizationDTO } from "./dto";
-import { Types } from "mongoose";
 import { UserRepository } from "src/models/user/user.repository";
 import { UpdateUserDTO } from "../user/dto";
-import { UserDocument } from "src/models/user/user.schema";
+import { CreateOrganizationDTO, UpdateOrganizationDTO } from "./dto";
 
 
 @Injectable()
@@ -72,22 +71,24 @@ export class OrganizationService{
     }
 
 
-    // invite organization
-    async inviteOrganization(organizationId : string ,updateUserDTO : UpdateUserDTO):Promise<{message : string}>{
+    // invite user
+    async inviteUser(organizationId : string ,updateUserDTO : UpdateUserDTO):Promise<{message : string}>{
       // check if organization exits
       const organization = await this.organizationRepository.getOne({_id : new Types.ObjectId(organizationId)})
       //failed
       if(!organization) throw new NotFoundException("organization not found")
         //check if user exist by email
-      const user = await this.userRepository.getOne({email : updateUserDTO.email}) as unknown as Types.ObjectId
+      const user = await this.userRepository.getOne({email : updateUserDTO.email})
       //failed
+      console.log(user);
+      
       if(!user) throw new NotFoundException("user not found")
         // check if this user is already in organization
-      if(organization.organization_members.includes(user._id)){
-        throw new NotFoundException("user already exist in this organization")
-      }
+      if (organization.organization_members.some(memberId => memberId.toString() == user._id.toString())) {
+        throw new NotFoundException("User already exists in this organization");
+    }
       // add user to organization_members array
-      organization.organization_members.push(user._id);
+      organization.organization_members.push(user._id as Types.ObjectId) ;
       // save in database
       await organization.save()
       //return response
