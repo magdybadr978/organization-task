@@ -1,5 +1,5 @@
 import { Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose, { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
 
 export type UserDocument = User & Document; 
 
@@ -8,7 +8,8 @@ export class User {
   name: string;
   email : string;
   password: string;
-  readonly _id?: mongoose.Schema.Types.ObjectId;
+  access_level : string
+  readonly _id?: Types.ObjectId;
 }
 
 export const userSchema = SchemaFactory.createForClass(User);
