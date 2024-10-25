@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose from 'mongoose';
+import { Types } from 'mongoose';
 
-@Schema({ timestamps: true, discriminatorKey: 'access_level', collection: 'person' })
+@Schema({ timestamps: true, discriminatorKey: 'access_level' })
 export class Person {
   @Prop({ type: String , trim : true})
   name: string;
@@ -15,6 +15,6 @@ export class Person {
   @Prop({type : String , enum : ['User' , 'Admin']})
   access_level : string;
 
-  readonly _id: mongoose.Schema.Types.ObjectId;
+  readonly _id: Types.ObjectId;
 }
 export const personSchema = SchemaFactory.createForClass(Person);
