@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
 import { OrganizationService } from "./organization.service";
 import { CreateOrganizationDTO, UpdateOrganizationDTO } from "./dto";
+import { UpdateUserDTO } from "../user/dto";
 
 
 @Controller('organization')
@@ -30,5 +31,10 @@ export class OrganizationController{
   @Delete(':id')
   async deleteOrganization(@Param('id') id : string){
      return this.organizationService.deleteOrganization(id)
+  }
+
+  @Post(':organizationId/invite')
+  async inviteUser(@Param('organizationId') organizationId : string,@Body() updateUserDTO : UpdateUserDTO){
+    return this.organizationService.inviteUser(organizationId , updateUserDTO)
   }
 }
