@@ -6,6 +6,7 @@ import { Organization, OrganizationDocument } from "src/models/organization/orga
 import { UserRepository } from "src/models/user/user.repository";
 import { UpdateUserDTO } from "../user/dto";
 import { CreateOrganizationDTO, UpdateOrganizationDTO } from "./dto";
+import { User } from "src/models/user/user.schema";
 
 
 @Injectable()
@@ -24,16 +25,12 @@ export class OrganizationService{
 // get specific organization
   async getOrganization(id : string):Promise<GetOneResponse<Organization>>{
     // check if organization exist
-    const organization = await this.organizationRepository.getOne({ _id : new Types.ObjectId(id)})
+    const organization = await this.organizationRepository.getOne({ _id : new Types.ObjectId(id)},{},{populate : [{  path: 'organization_members',
+      select: 'name email access_level'}]})
     // failed
     if(!organization) throw new NotFoundException("organization not found")
-      // // Populate organization members
-    const populatedOrganization = await organization.populate({
-      path: 'organization_members',
-      select: 'name email access_level'
-  });
     //send response
-    return { success : true , data : populatedOrganization}
+    return { success : true , data : organization}
   }
 
   // get all organizations
