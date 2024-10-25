@@ -25,17 +25,22 @@ export class OrganizationService{
 // get specific organization
   async getOrganization(id : string):Promise<GetOneResponse<Organization>>{
     // check if organization exist
-    const organization = await (await this.organizationRepository.getOne({ _id : new Types.ObjectId(id)})).populate({ path : 'organization_members' , select : 'name email access_level'})
+    const organization = await this.organizationRepository.getOne({ _id : new Types.ObjectId(id)})
     // failed
     if(!organization) throw new NotFoundException("organization not found")
+      // // Populate organization members
+    const populatedOrganization = await organization.populate({
+      path: 'organization_members',
+      select: 'name email access_level'
+  });
     //send response
-    return { success : true , data : organization}
+    return { success : true , data : populatedOrganization}
   }
 
   // get all organizations
   async getAllOrganizations():Promise<GetAllResponse<Organization>>{
     // use getall method 
-    const organizations = await this.organizationRepository.getAll({})
+    const organizations = await this.organizationRepository.getAll({},{} ,{ populate:{ path: 'organization_members', select: 'name email access_level'} })
     //faild
     if(organizations.length == 0) throw new NotFoundException("there is no organizations")
     //send response
