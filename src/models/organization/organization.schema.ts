@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose, { Document, Types } from 'mongoose';
+import { Document, Types } from 'mongoose';
 
 export type OrganizationDocument = Organization & Document;
 
@@ -11,10 +11,10 @@ export class Organization {
   @Prop({ type: String , trim : true})
   description: string;
 
-  @Prop({ type: [mongoose.Schema.Types.ObjectId], ref: 'User' })
+  @Prop({ type: [Types.ObjectId], ref: 'User' })
   organization_members: Types.ObjectId[];
 
-  readonly _id?: mongoose.Schema.Types.ObjectId;
+  readonly _id?:Types.ObjectId;
 }
 
 export const organizationSchema = SchemaFactory.createForClass(Organization);
