@@ -1,3 +1,11 @@
-FROM node:10.5.0
+FROM node:18
 
 WORKDIR /app
+
+COPY ["package.json", "package-lock.json", "./"]
+
+RUN npm install
+
+COPY . .
+
+CMD ["node", "main.ts"]
