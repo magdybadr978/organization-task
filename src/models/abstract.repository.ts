@@ -26,10 +26,18 @@ export abstract class AbstractRepository<T> {
   public async getAll(
     query: FilterQuery<T>,
     params?: ProjectionType<T>,
-    options?: QueryOptions<T>,
-  ) {
-    return this.nModel.find(query, params, options).exec();
-  }
+    options?: QueryOptions<T> & { populate?: any } // Extend with populate options
+) {
+    let queryBuilder = this.nModel.find(query, params, options).lean();
+    
+    // If populate options are provided, use populate
+    if (options?.populate) {
+        queryBuilder = queryBuilder.populate(options.populate);
+    }
+
+    return queryBuilder.exec();
+}
+
 
   
 
