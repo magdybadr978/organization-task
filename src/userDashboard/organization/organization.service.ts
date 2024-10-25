@@ -80,8 +80,6 @@ export class OrganizationService{
         //check if user exist by email
       const user = await this.userRepository.getOne({email : updateUserDTO.email})
       //failed
-      console.log(user);
-      
       if(!user) throw new NotFoundException("user not found")
         // check if this user is already in organization
       if (organization.organization_members.some(memberId => memberId.toString() == user._id.toString())) {
