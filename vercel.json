@@ -8,12 +8,9 @@
   ],
   "routes": [
     {
-      "src": "/user/(.*)",
-      "dest": "/dist/main.js"
-    },
-    {
-      "src": "/(.*)", 
+      "src": "/(.*)",
       "dest": "/dist/main.js"
     }
   ]
 }
+
