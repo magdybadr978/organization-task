@@ -1,5 +1,5 @@
 {
-  "name": "dinamo",
+  "name": "task",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -11,7 +11,7 @@
     "start": "node dist/main.js",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
+    "start:prod": "node dist/main.js",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -39,7 +39,8 @@
     "mongoose": "^8.7.0",
     "nestjs-uuid": "^0.1.4",
     "reflect-metadata": "^0.2.0",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "task": "file:"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
