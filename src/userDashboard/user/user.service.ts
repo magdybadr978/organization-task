@@ -45,9 +45,7 @@ export class UserService {
         { secret: process.env.REFRESH_TOKEN_SIGNATURE, expiresIn: '30d' }  
       );
       //  store refresh token in the database
-    const update =  await this.userRepository.update(user._id, { refreshToken: refresh_token },{new : true});
-    console.log(update);
-    
+      await this.userRepository.update(user._id, { refreshToken: refresh_token },{new : true , lean : true});  
       // Return both tokens
       return {
         message: 'successfully signed in',
