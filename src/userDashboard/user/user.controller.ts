@@ -5,7 +5,7 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { CreateUserDTO, SignInDTO } from './dto';
+import { CreateUserDTO, RefreshTokenDTO, SignInDTO } from './dto';
 import { UserService } from './user.service';
 
 
@@ -23,6 +23,11 @@ export class UserController {
  @UsePipes(ValidationPipe)
  async signIn(@Body() signInDTO : SignInDTO){
   return this.userService.signIn(signInDTO)
+ }
+
+ @Post('refresh-token')
+ async refreshToken(@Body() refreshTokenDTO: RefreshTokenDTO) {
+   return this.userService.refreshToken(refreshTokenDTO);
  }
 
   
