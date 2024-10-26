@@ -1,20 +1,16 @@
-
-
-import { BadRequestException, ForbiddenException, HttpException, Injectable, NotFoundException, Req, UnauthorizedException } from "@nestjs/common";
+import { BadRequestException, Injectable, NotFoundException, UnauthorizedException } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import * as bcrypt from "bcryptjs";
-import { Types } from "mongoose";
-import { CreateResponse, DeleteResponse, GetAllResponse, GetOneResponse, UpdateResponse } from "src/common/dto/response.dto";
 import { UserRepository } from "src/models/user/user.repository";
-import { User, UserDocument } from "src/models/user/user.schema";
-import { CreateUserDTO, SignInDTO} from "./dto";
+import { UserDocument } from "src/models/user/user.schema";
+import { CreateUserDTO, RefreshTokenDTO, SignInDTO } from "./dto";
 @Injectable()
 export class UserService {
   constructor(private readonly userRepository : UserRepository , private readonly jwtService : JwtService) {}
 
 
     // signUp for user
-    async signUp(createUserDTO : CreateUserDTO): Promise<CreateResponse<User>>{
+    async signUp(createUserDTO : CreateUserDTO): Promise<{message : string}>{
       // check if user exist
       const userExist = await this.userRepository.getOne({ email : createUserDTO.email}) 
       // if exist throw error
@@ -24,7 +20,7 @@ export class UserService {
       // make variable to add user 
       const user = await this.userRepository.create({...createUserDTO , password : hashPassword})as unknown as  UserDocument
       // send response
-      return {success : true , data : user}
+      return {message : "successfully signed up"}
     }
 
     
@@ -49,14 +45,48 @@ export class UserService {
         { secret: process.env.REFRESH_TOKEN_SIGNATURE, expiresIn: '30d' }  
       );
       //  store refresh token in the database
-      await this.userRepository.update(user._id, { refreshToken: refresh_token },{new : true , lean : true});
+    const update =  await this.userRepository.update(user._id, { refreshToken: refresh_token },{new : true});
+    console.log(update);
+    
       // Return both tokens
       return {
-        message: 'User successfully signed in',
+        message: 'successfully signed in',
         access_token,
         refresh_token,
       };
     }
+
+    // refresh token
+    async refreshToken(refreshTokenDTO: RefreshTokenDTO): Promise<{ message: string; access_token: string; refresh_token: string }> {
+      const { refresh_token } = refreshTokenDTO;
+      // Verify the refresh token
+      const payload = this.jwtService.verify(refresh_token, {
+        secret: process.env.REFRESH_TOKEN_SIGNATURE,
+      });  
+      // Retrieve the user using the token's payload
+      const user = await this.userRepository.getOne({ _id: payload.id, refreshToken: refresh_token });
+      // If user not found or refresh token is invalid
+      if (!user) throw new UnauthorizedException('Invalid refresh token');
+      // Generate new access token
+      const access_token = this.jwtService.sign(
+        { id: user._id, email: user.email },
+        { secret: process.env.TOKEN_SIGNATURE, expiresIn: '15m' }
+      );
+      // Generate new refresh token
+      const new_refresh_token = this.jwtService.sign(
+        { id: user._id, email: user.email },
+        { secret: process.env.REFRESH_TOKEN_SIGNATURE, expiresIn: '30d' }
+      );
+      // Update the user refresh token in the database
+      await this.userRepository.update(user._id, { refreshToken: new_refresh_token }, { new: true, lean: true });
+      // Return both tokens
+      return {
+        message: 'Token refreshed successfully',
+        access_token,
+        refresh_token: new_refresh_token,
+      };
+    }
+    
     
   }
 
