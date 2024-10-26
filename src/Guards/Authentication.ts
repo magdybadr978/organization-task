@@ -6,7 +6,7 @@ import {
   HttpStatus,
   Injectable
 } from '@nestjs/common';
-import { AuthService } from './Auth.service';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
