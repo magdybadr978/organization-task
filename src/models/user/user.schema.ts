@@ -8,7 +8,7 @@ export class User {
   name: string;
   email : string;
   password: string;
-  access_level : string
+  access_level : string;
   readonly _id?: Types.ObjectId;
 }
 
