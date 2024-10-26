@@ -5,7 +5,7 @@ import { UpdateUserDTO } from "../user/dto";
 import { AuthGuard } from "../..//Guards/Authentication";
 
 
-@Controller('organization')
+@Controller()
 export class OrganizationController{
   constructor(private readonly organizationService : OrganizationService) {}
 
