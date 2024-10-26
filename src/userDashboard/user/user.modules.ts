@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { AuthService } from 'src/Guards/auth.service';
-import { RolesGuard } from 'src/Guards/Authorization';
-import { UserMongoModule } from 'src/shared/modules/user-mongo.module';
+import { AuthService } from '../../Guards/auth.service';
+import { RolesGuard } from '../../Guards/Authorization';
+
 import { UserController } from './user.controller';
 import { UserService } from './user.service';
+import { UserMongoModule } from '../../shared/modules/user-mongo.module';
 
 @Module({
   imports: [

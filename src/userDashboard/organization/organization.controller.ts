@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from "@nes
 import { OrganizationService } from "./organization.service";
 import { CreateOrganizationDTO, UpdateOrganizationDTO } from "./dto";
 import { UpdateUserDTO } from "../user/dto";
-import { AuthGuard } from "src/Guards/Authentication";
+import { AuthGuard } from "../..//Guards/Authentication";
 
 
 @Controller('organization')

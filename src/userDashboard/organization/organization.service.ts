@@ -1,12 +1,11 @@
 import { BadGatewayException, Injectable, NotFoundException } from "@nestjs/common";
 import { Types } from "mongoose";
 import { DeleteResponse, GetAllResponse, GetOneResponse, UpdateResponse } from "src/common/dto/response.dto";
-import { OrganizationRepository } from "src/models/organization/organization.repository";
-import { Organization, OrganizationDocument } from "src/models/organization/organization.schema";
-import { UserRepository } from "src/models/user/user.repository";
+import { OrganizationRepository } from "../..//models/organization/organization.repository";
+import { Organization, OrganizationDocument } from "../..//models/organization/organization.schema";
+import { UserRepository } from "../..//models/user/user.repository";
 import { UpdateUserDTO } from "../user/dto";
 import { CreateOrganizationDTO, UpdateOrganizationDTO } from "./dto";
-import { User } from "src/models/user/user.schema";
 
 
 @Injectable()
