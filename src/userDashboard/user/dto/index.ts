@@ -24,6 +24,11 @@ export class CreateUserDTO {
     minUppercase: 1,
   })
   password: string;
+
+  @ApiProperty()
+  @IsString()
+  @IsOptional()
+  refreshToken : string
 }
 
 

@@ -9,6 +9,7 @@ export class User {
   email : string;
   password: string;
   access_level : string;
+  refreshToken : string
   readonly _id?: Types.ObjectId;
 }
 

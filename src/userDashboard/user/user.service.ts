@@ -47,6 +47,9 @@ export class UserService {
       //  store refresh token in the database
       await this.userRepository.update(user._id, { refreshToken: refresh_token },{new : true , lean : true});  
       // Return both tokens
+      console.log('Stored refresh token:', user.refreshToken);
+      console.log('Provided refresh token:', refresh_token);
+
       return {
         message: 'successfully signed in',
         access_token,
