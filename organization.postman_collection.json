@@ -17,7 +17,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"hafez\",\r\n    \"email\" : \"hafez1@gmail.com\",\r\n    \"password\" : \"Magdy@123\"\r\n\r\n}",
+							"raw": "{\r\n    \"name\" : \"ahmed\",\r\n    \"email\" : \"ahmed1@gmail.com\",\r\n    \"password\" : \"Magdy@123\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -25,14 +25,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/user/signUp",
+							"raw": "http://localhost:8080/signUp",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"user",
 								"signUp"
 							]
 						}
@@ -46,7 +45,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"hafez1@gmail.com\",\r\n    \"password\" : \"Magdy@123\"\r\n}",
+							"raw": "{\r\n    \"email\" : \"ahmed1@gmail.com\",\r\n    \"password\" : \"Magdy@123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -54,14 +53,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/user/signIn",
+							"raw": "http://localhost:8080/signIn",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"user",
 								"signIn"
 							]
 						}
@@ -75,7 +73,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"refresh_token\" : \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWNlNDA1ZDE0NzM5Mzg2NWQyYzZlNCIsImVtYWlsIjoiYmFkcjFAZ21haWwuY29tIiwiaWF0IjoxNzI5OTU3NTMxLCJleHAiOjE3MzI1NDk1MzF9.lMsbjEgExtUt4H1xOXb_FPJ1VSqg0W3NUP5Df_6_nu0\"\r\n}",
+							"raw": "{\r\n    \"refresh_token\" : \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWViMjJjN2ExMzI0YTU3MzI5ZDMwMyIsImVtYWlsIjoiYWhtZWQxQGdtYWlsLmNvbSIsImlhdCI6MTczMDA2NDk0MywiZXhwIjoxNzMyNjU2OTQzfQ.1q8CX4-NKODOGkn5FhKnvBbhAIElPhaHuWG57XY2hfI\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -83,14 +81,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/user/refresh-token",
+							"raw": "http://localhost:8080/refresh-token",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"user",
 								"refresh-token"
 							]
 						}
@@ -123,7 +120,7 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "Moo__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWQwZjgzNmJiOWFiZWFkZmVhOTRjYiIsImVtYWlsIjoiaGFmZXoxQGdtYWlsLmNvbSIsImlhdCI6MTcyOTk1Nzc3OCwiZXhwIjoxNzI5OTU4Njc4fQ.NTt7mwaeGX63TQeZdbSNR5GSLhNxPaG64Ry4IrNzuSM",
+								"value": "Moo__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWViMjJjN2ExMzI0YTU3MzI5ZDMwMyIsImVtYWlsIjoiYWhtZWQxQGdtYWlsLmNvbSIsImlhdCI6MTczMDA3MDA0MCwiZXhwIjoxNzMwMDcwOTQwfQ.tbqMaXwHQVV1HeS9XU6fpycRIWRqb9H3ckoxR8fwwh8",
 								"type": "text"
 							}
 						],
@@ -137,14 +134,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/organization/create",
+							"raw": "http://localhost:8080/create",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"organization",
 								"create"
 							]
 						},
@@ -173,13 +169,13 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "Moo__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWQwZjgzNmJiOWFiZWFkZmVhOTRjYiIsImVtYWlsIjoiaGFmZXoxQGdtYWlsLmNvbSIsImlhdCI6MTcyOTk1Nzc3OCwiZXhwIjoxNzI5OTU4Njc4fQ.NTt7mwaeGX63TQeZdbSNR5GSLhNxPaG64Ry4IrNzuSM",
+								"value": "Moo__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWViMjJjN2ExMzI0YTU3MzI5ZDMwMyIsImVtYWlsIjoiYWhtZWQxQGdtYWlsLmNvbSIsImlhdCI6MTczMDA3MDA0MCwiZXhwIjoxNzMwMDcwOTQwfQ.tbqMaXwHQVV1HeS9XU6fpycRIWRqb9H3ckoxR8fwwh8",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"hafez1@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"email\" : \"ahmed1@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -187,15 +183,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/organization/671bb555962881af8914ca74/invite",
+							"raw": "http://localhost:8080/671ec6a7f13beb0838ec480f/invite",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"organization",
-								"671bb555962881af8914ca74",
+								"671ec6a7f13beb0838ec480f",
 								"invite"
 							]
 						},
@@ -225,7 +220,7 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "Moo__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWQwZjgzNmJiOWFiZWFkZmVhOTRjYiIsImVtYWlsIjoiaGFmZXoxQGdtYWlsLmNvbSIsImlhdCI6MTcyOTk1Nzc3OCwiZXhwIjoxNzI5OTU4Njc4fQ.NTt7mwaeGX63TQeZdbSNR5GSLhNxPaG64Ry4IrNzuSM",
+								"value": "Moo__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWViMjJjN2ExMzI0YTU3MzI5ZDMwMyIsImVtYWlsIjoiYWhtZWQxQGdtYWlsLmNvbSIsImlhdCI6MTczMDA3MDA0MCwiZXhwIjoxNzMwMDcwOTQwfQ.tbqMaXwHQVV1HeS9XU6fpycRIWRqb9H3ckoxR8fwwh8",
 								"type": "text"
 							}
 						],
@@ -239,15 +234,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/organization/671bb555962881af8914ca74",
+							"raw": "http://localhost:8080/671ec6a7f13beb0838ec480f",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"organization",
-								"671bb555962881af8914ca74"
+								"671ec6a7f13beb0838ec480f"
 							]
 						},
 						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
@@ -276,7 +270,7 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "Moo__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWQwZjgzNmJiOWFiZWFkZmVhOTRjYiIsImVtYWlsIjoiaGFmZXoxQGdtYWlsLmNvbSIsImlhdCI6MTcyOTk1Nzc3OCwiZXhwIjoxNzI5OTU4Njc4fQ.NTt7mwaeGX63TQeZdbSNR5GSLhNxPaG64Ry4IrNzuSM",
+								"value": "Moo__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWViMjJjN2ExMzI0YTU3MzI5ZDMwMyIsImVtYWlsIjoiYWhtZWQxQGdtYWlsLmNvbSIsImlhdCI6MTczMDA3MDA0MCwiZXhwIjoxNzMwMDcwOTQwfQ.tbqMaXwHQVV1HeS9XU6fpycRIWRqb9H3ckoxR8fwwh8",
 								"type": "text"
 							}
 						],
@@ -290,14 +284,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/organization/",
+							"raw": "http://localhost:8080/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"organization",
 								""
 							]
 						},
@@ -327,7 +320,7 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "Moo__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWQwZjgzNmJiOWFiZWFkZmVhOTRjYiIsImVtYWlsIjoiaGFmZXoxQGdtYWlsLmNvbSIsImlhdCI6MTcyOTk1Nzc3OCwiZXhwIjoxNzI5OTU4Njc4fQ.NTt7mwaeGX63TQeZdbSNR5GSLhNxPaG64Ry4IrNzuSM",
+								"value": "Moo__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWViMjJjN2ExMzI0YTU3MzI5ZDMwMyIsImVtYWlsIjoiYWhtZWQxQGdtYWlsLmNvbSIsImlhdCI6MTczMDA3MDA0MCwiZXhwIjoxNzMwMDcwOTQwfQ.tbqMaXwHQVV1HeS9XU6fpycRIWRqb9H3ckoxR8fwwh8",
 								"type": "text"
 							}
 						],
@@ -341,15 +334,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/organization/671d0fbd6bb9abeadfea94cf",
+							"raw": "http://localhost:8080/671ec628f13beb0838ec4806",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"organization",
-								"671d0fbd6bb9abeadfea94cf"
+								"671ec628f13beb0838ec4806"
 							]
 						},
 						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
@@ -378,7 +370,7 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "Moo__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWQwZjgzNmJiOWFiZWFkZmVhOTRjYiIsImVtYWlsIjoiaGFmZXoxQGdtYWlsLmNvbSIsImlhdCI6MTcyOTk1Nzc3OCwiZXhwIjoxNzI5OTU4Njc4fQ.NTt7mwaeGX63TQeZdbSNR5GSLhNxPaG64Ry4IrNzuSM",
+								"value": "Moo__eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWViMjJjN2ExMzI0YTU3MzI5ZDMwMyIsImVtYWlsIjoiYWhtZWQxQGdtYWlsLmNvbSIsImlhdCI6MTczMDA3MDA0MCwiZXhwIjoxNzMwMDcwOTQwfQ.tbqMaXwHQVV1HeS9XU6fpycRIWRqb9H3ckoxR8fwwh8",
 								"type": "text"
 							}
 						],
@@ -392,15 +384,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/organization/671d0fbd6bb9abeadfea94cf",
+							"raw": "http://localhost:8080/671ec628f13beb0838ec4806",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"organization",
-								"671d0fbd6bb9abeadfea94cf"
+								"671ec628f13beb0838ec4806"
 							]
 						},
 						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
