@@ -15,6 +15,9 @@ export class Person {
   @Prop({type : String , enum : ['User' , 'Admin']})
   access_level : string;
 
+  @Prop({type : String})
+  refreshToken : string
+
   readonly _id: Types.ObjectId;
 }
 export const personSchema = SchemaFactory.createForClass(Person);
